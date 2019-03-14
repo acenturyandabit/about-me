@@ -1,0 +1,299 @@
+<html>
+  <!--TODO:-->
+  <!--My CV link-->
+  <!--Host it.-->
+  <head>
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <title>Steven Liu - CV</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        let topbarItems = document.querySelectorAll("[data-selection]");
+        for (let i = 0; i < topbarItems.length; i++) {
+          topbarItems[i].addEventListener("click", function(e) {
+            document.querySelectorAll("[data-section]").forEach((i, v) => {
+              i.classList.remove("shown");
+            });
+            document
+              .querySelector(
+                "[data-section='" + e.target.dataset.selection + "']"
+              )
+              .classList.add("shown");
+          });
+        }
+        document.addEventListener("wheel", function(e) {
+          // determine the current card
+          let currentCard = document.querySelector(
+            "[data-section].shown .card.shown"
+          );
+          // determine whether or not we are scrolling up or down
+          if (e.deltaY > 0) {
+            //show the next card
+            if (currentCard.nextElementSibling) {
+              currentCard.classList.remove("shown");
+              currentCard.nextElementSibling.classList.add("shown");
+            }
+          } else {
+            if (currentCard.previousElementSibling) {
+              currentCard.classList.remove("shown");
+              currentCard.previousElementSibling.classList.add("shown");
+            }
+            //show the previous card
+          }
+          console.log(e);
+          // attach the relevant classes
+        });
+      });
+    </script>
+    <style>
+      *{
+        font-family: 'Ubuntu', sans-serif;
+      }
+      .topbar > span {
+        background: darkblue;
+        margin: 0.5em;
+        padding: 0.5em;
+      }
+      .topbar {
+        margin: 1em;
+      }
+      .card > img {
+        height: 50%;
+      }
+      .card {
+        display: none;
+      }
+      .section {
+        display: none;
+      }
+      .card.shown {
+        display: block;
+      }
+      .section.shown {
+        display: block;
+      }
+      a{
+        background-color:white;
+      }
+    </style>
+  </head>
+  <body style="display:flex">
+    <div
+      style="margin: auto; height: 80vh; width: 80vw; border-radius:3em; background:blue; padding:3em; color:white"
+    >
+      <h1>Steven Liu - <span class="name">Who am I?</span></h1>
+      <div class="topbar">
+        <span data-selection="whativedone">Experience</span>
+        <span data-selection="whoami">Skills</span>
+        <span data-selection="where2next">Direction</span>
+      </div>
+      <div>
+        <img />
+        <!-- to download my paper CV -->
+        <div class="section" data-section="whativedone">
+          <div class="card shown">
+            <img src="resources/matrix.png"/>
+            <h1>Job: Matrix Education</h1>
+            <p>
+              I've worked at Matrix Education as a Math tutor since 2018. My job
+              involves helping students to solve their problems one-on-one, as
+              well as ensuring I complete the marking allocation I am assinged
+              each week.
+            </p>
+            <p>
+              My primary achievement is obtaining a 4.9+/5 in our WEQ
+              performance metric based on being friendly, goal-oriented,
+              professional and good communicators.
+            </p>
+          </div>
+          <div class="card">
+            <img src="resources/robotx.jpg"/>
+            <h1>Extracurricular: USYD RobotX</h1>
+            <p>
+              I've been working with the USYD RobotX team since mid-2018. I
+              started as a Computer vision specialist, learning how to work with
+              a new operating system, a new framework, and microprocessors I
+              hadn't encountered before, all in the space of a few months.
+              Currently my role there involves managing the low-level code and
+              progression of critical systems so the rest of the team can have a
+              reliable platform to build upon.
+            </p>
+          </div>
+          <div class="card">
+            <img src="resources/ppp.png"/>
+            <h1>Project: PEP ++</h1>
+            <p>
+              At the University of Sydney, as an engineer I have to engage with
+              the Professional Engagement Program (PEP) which aims to facilitate
+              skill-building activities. For us students as users, there were
+              many areas we felt could be improved. After collecting those areas
+              and contacting Anthony Kadi, the person in charge of the program,
+              I felt that I could directly resolve some of the issues by
+              constructing a user interface addition called PEP ++.
+            </p>
+            <p>
+              PEP++ drew on my ability to take an existing product and improve
+              it to better address the needs of the customers, whilst retaining
+              the original functionality of the program.
+            </p>
+          </div>
+          <div class="card">
+            <img src="resources/University-of-Sydney-1.jpg"/>
+            <h1>Academics: USYD Leadership Scholarship</h1>
+            <p>
+              I'm currently a member of the USYD Leadership Scholars, a group of
+              students chosen for our ability to lead and inspire others.
+              Through the leadership scholarship I've travelled overseas to
+              engage with students at the Penn State University to engage with
+              an international project developing an aquaponics sensor platform
+              to be used in Pretoria, Africa.
+            </p>
+          </div>
+          <div class="card">
+            <img src="resources/University-of-Sydney-1.jpg" />
+            <h1>
+              Academics: Bachelor of Project Management and Bachelor of
+              Mechatronics Engineering
+            </h1>
+            <p>
+              I'm currently studying a Project Management / Mechatronics
+              Engineering double degree at the University of Sydney. To date I
+              have maintained close to a HD average (a WAM of :::) in my
+              studies.
+            </p>
+          </div>
+        </div>
+        <div class="section shown" data-section="whoami">
+          <div class="card shown">
+            <img src="resources/me2.jpg"/>
+            <h1>Introduction</h1>
+            <p>
+              Hey there! I'm Steven Liu. You're probably here because you wanted
+              to see my CV.
+            </p>
+            <p>
+              If you want to see my online body of work, head over to
+              <a href="http://quotum.herokuapp.com/">here.</a>
+            </p>
+            <p>Otherwise, it's nice to meet you :)</p>
+            <p>Scroll on down!</p>
+          </div>
+          <div class="card">
+            <img src="resources/polymorphdemo.gif"/>
+            <h1>Skill: Web development</h1>
+            <p>
+              I've been developing for the web since 2018, but my extensive
+              programming experience means I've gotten a lot done since then.
+              I've embraced the Progressive Web App movement which allows
+              developers to quickly build cross-platform user interfaces. I've
+              built my own Javascript modular framework to speed up the
+              development process without having to depend on an opaque
+              frameworks with extensive overhead.
+            </p>
+            <p>
+              My opus magnum in this sphere is
+              <a href="acenturyandabit.github.io/polymorph">Polymorph</a>: a
+              hyper-flexible user interface geared towards modularity and
+              customisability.
+            </p>
+          </div>
+          <div class="card">
+            <img src="resources/SBD.png"/>
+            <h1>Skill: Robotics engineering</h1>
+            <p>
+              I'm currently studying a double degree with Mechatronics Engineer
+              at the University of Sydney. I first started robotics in 2012 upon
+              starting high school and have been passionate about it ever since.
+              My robotics experience helps me adapt to a variety of electrical
+              and mechanical engineering problems, as well as giving me
+              systems-level insight into problems I face.
+            </p>
+            <p>
+              My opus magnum in this sphere is with the USYD RobotX program,
+              developing a self-driving ASV based off the WAM-V and kingfisher
+              platforms.
+            </p>
+          </div>
+          <div class="card">
+            <img src="resources/ganttchart.png"/>
+            <h1>Skill: Project management</h1>
+            <p>
+              I'm currently studying a double degree with Project Management at
+              the University of Sydney. I've managed many extracurricular
+              projects in University and have learnt many lessons along the way.
+            </p>
+            <p>
+              My experience in this field is guiding the development of
+              Polymorph, as a collaborative project management toolkit.
+            </p>
+          </div>
+        </div>
+        <div class="section" data-section="where2next">
+          <div class="card shown">
+            <img src="resources/oculus.png"/>
+            <h1>Where to next?</h1>
+            <p>
+              I'm currently in my 2nd year of university, so I've certainly got
+              a way to go until I graduate. That being said, I'm passionate
+              about quite a few things which gives me a sense of direction when
+              choosing where to go.
+            </p>
+            <p>Scroll on down!</p>
+          </div>
+          <div class="card">
+            <img src="resources/recycling.jpg"/>
+            <h1>Passion: Primary Sector Renewability</h1>
+            <p>
+              I believe the human race is capable of progressing into the future
+              sustainably without compromising our standard of living. This
+              could only be achieved by developing and implementing renewable
+              resource streams. Only if we can do this in a scalable manner will
+              we be able to pursue longer term goals such as increased world
+              stability, a world free from disease, and space exploration.
+            </p>
+            <p>
+              There are many ways that I see myself going about this, whether
+              it's working with AI and NLP to analyse data and identify
+              opportunities for resource recycling, or engineering scalability
+              and reliability into the latest scientific advances.
+            </p>
+          </div>
+          <div class="card">
+            <img src="resources/strategy.jpg"/>
+            <h1>Passion: Strategy</h1>
+            <p>
+              Our consciousness enables us to plan far into the future and I
+              believe that we should utilise this in everything that we do. I
+              strongly appreciate responsive, self-aware organisations which
+              have a vision and a well-thought-out means of achieving it.
+            </p>
+            <p>
+              I feel like as a society we arm ourselves with tools to deal with
+              the short term rather than the long term. I want to change this by
+              helping develop new ways of conceptualising and planning ideas to
+              facilitate strategic thinking.
+            </p>
+          </div>
+          <div class="card">
+            <img src="resources/univ-rob.png"/>
+            <h1>Passion: Robotics and automation</h1>
+            <p>
+              As humans one of our defining features is our culture, founded
+              upon self-expression and art. If we constrain people into
+              repetitive tasks that really could be done by a robot, we are
+              putting a cap on our abilities as a species. This is why I'm
+              passionate about robotics - not only as a means to be more
+              efficient, but also as a pathway for us as a species to become
+              better than we are today.
+            </p>
+            <p>
+              I would love to take part in a project which aims to bring down
+              the cost of robotics whilst increasing its capabilities so that
+              robotics becomes a part of our everyday life which we can depend
+              on to get basic things done without much intervention.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
